@@ -30,7 +30,7 @@ function UncontrolledFeedbackForm() {
             type="text"
             ref={nameRef}
             className="w-full p-2 border border-gray-300 rounded text-sm"
-            placeholder="Enter name"
+            placeholder="e.g. Jaiminpuri Bava"
           />
         </div>
         <div>
