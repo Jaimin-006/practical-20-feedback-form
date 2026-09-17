@@ -3,17 +3,20 @@ import React, { useRef } from 'react';
 function UncontrolledFeedbackForm() {
   const nameRef = useRef(null);
   const commentsRef = useRef(null);
+  const ratingRef = useRef(null);
 
   function handleFormSubmit(e) {
     e.preventDefault();
 
     const enteredName = nameRef.current.value;
     const enteredComments = commentsRef.current.value;
+    const enteredRating = ratingRef.current.value;
 
-    alert('Feedback Submitted!\nUser: ' + enteredName + '\nComments: ' + enteredComments);
+    alert('Feedback Submitted!\nUser: ' + enteredName + '\nRating: ' + enteredRating + ' Stars\nComments: ' + enteredComments);
 
     nameRef.current.value = '';
     commentsRef.current.value = '';
+    ratingRef.current.value = '5';
   }
 
   return (
@@ -34,6 +37,20 @@ function UncontrolledFeedbackForm() {
             className="w-full p-2.5 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
             placeholder="e.g. Jaiminpuri Bava"
           />
+        </div>
+        <div>
+          <label className="block text-xs font-semibold text-amber-950 uppercase tracking-wider mb-1">Overall Rating:</label>
+          <select
+            ref={ratingRef}
+            defaultValue="5"
+            className="w-full p-2.5 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 bg-white"
+          >
+            <option value="5">⭐⭐⭐⭐⭐ (5/5 - Excellent)</option>
+            <option value="4">⭐⭐⭐⭐ (4/5 - Good)</option>
+            <option value="3">⭐⭐⭐ (3/5 - Average)</option>
+            <option value="2">⭐⭐ (2/5 - Poor)</option>
+            <option value="1">⭐ (1/5 - Very Poor)</option>
+          </select>
         </div>
         <div>
           <label className="block text-xs font-semibold text-amber-950 uppercase tracking-wider mb-1">Comments:</label>
